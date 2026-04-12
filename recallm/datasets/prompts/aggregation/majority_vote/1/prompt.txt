@@ -1,0 +1,6 @@
+Below is a record of votes cast by delegates. Each delegate voted for exactly one option. Count the votes for each option and determine the winner.
+
+{question_start}{items}
+
+{question_end}Show your reasoning step-by-step. On the final line, output only:
+Answer: <the option with the most votes>

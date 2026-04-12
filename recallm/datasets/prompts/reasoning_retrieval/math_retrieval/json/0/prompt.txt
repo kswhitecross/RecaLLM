@@ -1,0 +1,15 @@
+Your task is to retrieve a value from a JSON dictionary. The key you need is the solution to a math problem. Solve the problem first, then look up the resulting key in the dictionary.
+
+Steps:
+- Solve the math problem to find the key.
+- Find that key in the JSON dictionary below.
+- Return the corresponding value exactly as it appears.
+
+Do your reasoning step-by-step. On the final line, output only:
+Answer: <the value>
+
+{question_start}```json
+{documents}
+```
+
+{question_end}

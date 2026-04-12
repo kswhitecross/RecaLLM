@@ -1,0 +1,79 @@
+# Stage 1: Embedding-only SFT for Llama-3.1-8B
+# Freezes all parameters except recall + think token embeddings.
+# 5 epochs, lr=5e-5, global batch size 32.
+#
+# This config is written for 1 GPU. For multi-GPU, reduce gradient_accumulation_steps
+# to keep the global batch size at 32 (e.g. grad_accum=4 for 2 GPUs).
+#
+# Prerequisites:
+#   python -m recallm.create_recallm_model \
+#       --base_model meta-llama/Llama-3.1-8B-Instruct \
+#       --output_path models/recallm_llama
+#
+# Launch (from recallm/sft/):
+#   deepspeed train_sft.py --config configs/llama_embed.yaml
+
+dataset:
+  names:
+  - kswhitecross/RecaLLM-sft
+  create_validaion_split: false
+  sample_validation: true
+  validation_sample_fraction: 0.4
+  validation_sample_seed: 43
+  shuffle: true
+  train_val_split_seed: 42
+  validation_split: 0.2
+  reverse_training_data: false
+  combine_system_prompt: false
+  validation_sample_stratified: false
+model:
+  name: ../../models/recallm_llama
+name: llama_embed
+save_dir: ../../output
+seed: 42
+logging_dir: logs
+wandb_project: RecaLLM-SFT
+wandb_entity: ''
+wandb_group: ''
+train:
+  eval_on_first_step: true
+  freeze_base_model: true
+  recall_masking: true
+  use_recall_tokens: true
+sft:
+  eval_strategy: steps
+  eval_steps: 25
+  max_steps: -1
+  num_train_epochs: 5
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  max_length: 16000
+  gradient_accumulation_steps: 8
+  eval_accumulation_steps: 1
+  gradient_checkpointing: true
+  learning_rate: 5.0e-05
+  weight_decay: 0.0
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+  bf16: true
+  logging_steps: 1
+  save_strategy: steps
+  save_steps: 50
+  metric_for_best_model: eval_loss
+  save_only_model: true
+  save_total_limit: 10
+  deepspeed: ds_config.json
+  use_liger_kernel: true
+  padding_free: false
+  torch_empty_cache_steps: 1
+  lr_scheduler_type: cosine_with_min_lr
+  lr_scheduler_kwargs:
+    min_lr_rate: 0.1
+  warmup_ratio: 0.02
+  completion_only_loss: true
+  neftune_noise_alpha: null
+  dataloader_drop_last: true
+  logging_nan_inf_filter: false
+  remove_unused_columns: false
+  use_logits_to_keep: true

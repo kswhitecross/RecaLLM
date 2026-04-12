@@ -1,0 +1,7 @@
+Below are labeled examples. Each shows a text and its assigned label. Study the patterns, then assign the correct label to the text below.
+
+{dataset_task_description}
+
+{demonstrations}
+
+{question_end}

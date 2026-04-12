@@ -1,0 +1,9 @@
+A special value is hidden within the following JSON object. Make sure to memorize it. I will quiz you about the value afterwards.
+
+{question_start}```json
+{documents}
+```
+
+What is the value for the specified key in the JSON object above? Output your answer on the final line in the format: Answer: (your answer here).
+
+{question_end}

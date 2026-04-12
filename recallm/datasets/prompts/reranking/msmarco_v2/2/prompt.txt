@@ -1,0 +1,5 @@
+You are a search relevance expert. Given a query and a collection of documents, determine which documents contain the most useful evidence for answering the query. Rank all documents from most to least relevant using their IDs, separated by " > ".
+
+{question_start}{documents}
+{question_end}
+Ranking:

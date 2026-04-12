@@ -1,0 +1,18 @@
+Your task is to retrieve a value from a list of key-value pairs.
+
+You are given:
+1) A list of entries, each mapping a key to a value.
+2) A key to look up.
+
+Steps:
+- Find the entry matching the specified key.
+- Return the corresponding value exactly as it appears.
+
+Do your reasoning step-by-step. On the final line, output only:
+Answer: <the value>
+
+{question_start}Key-value pairs:
+
+{documents}
+
+{question_end}

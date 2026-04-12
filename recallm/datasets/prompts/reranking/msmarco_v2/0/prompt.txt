@@ -1,0 +1,6 @@
+You are provided with a list of documents, each indicated by their ID. Rank each document based on their relevance to the question in descending order from most relevant to least relevant texts. Include all documents in the rankings. Write your answer using the unique IDs, with the following format:
+Ranking: ID3 > ID1 > ID2
+
+{question_start}{documents}
+{question_end}
+Ranking:

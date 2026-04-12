@@ -1,0 +1,5 @@
+Below is a set of documents. Your task is to rank them by how relevant each one is to the given query. Output a ranking of all document IDs from most relevant to least relevant, separated by " > ".
+
+{question_start}{documents}
+{question_end}
+Ranking:

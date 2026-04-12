@@ -1,0 +1,166 @@
+# @package _global_
+#
+# RecaLLM-Qwen2.5-7B GRPO training config.
+# Hardware: 4x A100 80GB, single node.
+# Paper config: BS=128, n=16 rollouts, lr=2e-6, 150 steps.
+
+defaults:
+  - /ppo_trainer
+  - _self_
+
+hydra:
+  output_subdir: hydra
+  run:
+    dir: ${trainer.default_local_dir}
+  job:
+    chdir: false
+
+data:
+  # Download training data:
+  #   python -m recallm.grpo.download_data --output_dir data/grpo
+  train_files:
+    - data/grpo/train.parquet
+  val_files:
+    - data/grpo/validation.parquet
+  train_batch_size: 128
+  max_prompt_length: 16000
+  max_response_length: 5120
+  filter_overlong_prompts: true
+  filter_overlong_prompts_workers: 16
+  truncation: error
+
+actor_rollout_ref:
+  model:
+    path: ../../output/qwen2_full/trainer/checkpoint-50
+    trust_remote_code: false
+    external_lib: "recallm"
+    use_remove_padding: true
+    enable_gradient_checkpointing: true
+    use_liger: true
+
+  actor:
+    optim:
+      lr: 2.0e-6
+      min_lr_ratio: 0.1
+      lr_scheduler_type: cosine
+
+    ppo_mini_batch_size: 128
+    ppo_micro_batch_size_per_gpu: 2
+
+    use_kl_loss: true
+    kl_loss_coef: 0.001
+    kl_loss_type: low_var_kl
+
+    entropy_coeff: 0
+
+    strategy: fsdp2
+    fsdp_config:
+      param_offload: true
+      optimizer_offload: true
+      offload_policy: false
+
+  rollout:
+    name: vllm
+    log_prob_micro_batch_size_per_gpu: 2
+
+    tensor_model_parallel_size: 1
+    gpu_memory_utilization: 0.3
+    max_model_len: 32768
+
+    n: 16
+    calculate_log_probs: true
+
+    engine_kwargs:
+      vllm:
+        trust_remote_code: false
+        hf_overrides:
+          model_type: "qwen2"
+          architectures:
+            - "Qwen2ForCausalLM"
+        logits_processors:
+          - "recallm.recallm_vllm:VLLMTokenRecaLLMLogitsProcessor"
+
+  ref:
+    log_prob_micro_batch_size_per_gpu: 2
+    strategy: fsdp2
+    fsdp_config:
+      param_offload: true
+      forward_prefetch: true
+
+critic:
+  model:
+    path: Qwen/Qwen2.5-7B-Instruct
+  optim:
+    lr: 1.0e-5
+  ppo_micro_batch_size_per_gpu: 4
+
+algorithm:
+  adv_estimator: grpo
+
+  use_kl_in_reward: false
+
+  kl_ctrl:
+    kl_coef: 0.0
+  rollout_correction:
+    rollout_is: token
+    rollout_is_threshold: 2.0
+    rollout_is_batch_normalize: false
+    rollout_rs: null
+    rollout_rs_threshold: null
+    bypass_mode: false
+    loss_type: ppo_clip
+
+trainer:
+  logger: ["console", "wandb"]
+
+  project_name: "RecaLLM-VeRL"
+  experiment_name: "recallm_qwen2"
+
+  val_before_train: false
+
+  n_gpus_per_node: 4
+  nnodes: 1
+
+  critic_warmup: 0
+
+  save_freq: 10
+  test_freq: 0
+  log_val_generations: 4
+
+  default_local_dir: ./output/${trainer.experiment_name}
+  rollout_data_dir: ./output/${trainer.experiment_name}/rollouts
+
+  total_training_steps: 150
+
+custom_reward_function:
+  path: pkg://recallm.grpo.rewards
+  name: final_reward
+  reward_kwargs:
+    recall_start_str: "<|start_recall|>"
+    recall_end_str: "<|end_recall|>"
+    hybrid_format_frac: 0.2
+    hybrid_additive_frac: 0.4
+    hybrid_multiplicative_frac: 0.4
+    qampari_answer_coverage_weight: 0.2
+    geom_smoothing_eps: 0.01
+    density_threshold: 4
+    density_half_life: 4
+    icl_gold_doc_mode: "top_k_gold"
+    icl_gold_doc_top_k: 2
+
+reward_model:
+  use_reward_loop: false
+  reward_kwargs:
+    max_resp_len: ${data.max_response_length}
+    overlong_buffer_cfg:
+      enable: true
+      len: 1024
+      penalty_factor: 1.0
+      penalty_method: multiplicative
+      log: true
+
+reward_manager:
+  source: importlib
+  name: RecaLLMRewardManager
+  module:
+    path: pkg://recallm.grpo.reward_manager

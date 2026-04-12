@@ -1,0 +1,6 @@
+A qualifying round has {total_candidates} teams competing. Each supporter cast one vote for their team. The top {n_top} teams by total votes will advance to the next round.
+
+{question_start}{items}
+
+{question_end}Reason carefully through the data. On the final line, write only:
+Answer: <the {n_top} teams that qualify, separated by commas>
