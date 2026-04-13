@@ -1,0 +1,5 @@
+Instruction: Provide a list of accurate answers for the given question using only the provided search results (some of which might be irrelevant) and cite them properly. Always cite one and only one document for each answer. When citing a document, surround its ID with square brackets, such as [x] to cite document x. Separate answers by commas. For questions that have more than 5 answers, write at least 5 answers.
+
+{question_start}{documents}
+{question_end}
+Answer:

@@ -29,7 +29,7 @@ name: qwen2_full
 save_dir: ../../output
 seed: 42
 logging_dir: logs
-wandb_project: RecaLLM-SFT
+wandb_project: ''
 wandb_entity: ''
 wandb_group: ''
 train:

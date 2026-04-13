@@ -1,0 +1,6 @@
+You are a data analyst. Review the following product information and answer the query.
+
+{question_start}{items}
+
+{question_end}Work through the data methodically. On the final line, output only:
+Answer: <your answer>

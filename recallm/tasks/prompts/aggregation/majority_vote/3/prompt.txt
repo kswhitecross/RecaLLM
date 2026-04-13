@@ -1,0 +1,6 @@
+You are given a list of votes. Analyze the voting record to determine which option won the plurality.
+
+{question_start}{items}
+
+{question_end}Reason carefully through the data. On the final line, write only:
+Answer: <the option that received the most votes>

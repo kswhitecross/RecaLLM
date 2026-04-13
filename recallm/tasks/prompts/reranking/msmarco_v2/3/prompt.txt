@@ -1,0 +1,5 @@
+Rank the following documents by relevance to the query. List all document IDs from most relevant to least relevant, using " > " as a separator.
+
+{question_start}{documents}
+{question_end}
+Ranking:

@@ -1,0 +1,5 @@
+{question_start}Product catalog:
+
+{items}
+
+{question_end}Analyze the data above and answer the question. Show your reasoning, then give your final answer on the last line as: Answer: <your answer>

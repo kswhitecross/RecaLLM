@@ -1,0 +1,7 @@
+{question_start}```json
+{documents}
+```
+
+Extract the value corresponding to the specified key in the JSON object above.
+
+{question_end}

@@ -127,8 +127,8 @@ trainer:
   test_freq: 0
   log_val_generations: 4
 
-  default_local_dir: ./output/${trainer.experiment_name}
-  rollout_data_dir: ./output/${trainer.experiment_name}/rollouts
+  default_local_dir: ../output/${trainer.experiment_name}
+  rollout_data_dir: ../output/${trainer.experiment_name}/rollouts
 
   total_training_steps: 60
 

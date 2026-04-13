@@ -1,0 +1,6 @@
+Use the provided mapping from the text to label to assign a label to the text. Only output the label and nothing else.
+
+{demonstrations}
+
+Text to classify:
+{question_end}

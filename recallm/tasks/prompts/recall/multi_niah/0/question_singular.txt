@@ -1,0 +1,1 @@
+What is the special magic {type_needle_v} for {query} mentioned in the provided text?

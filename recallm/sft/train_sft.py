@@ -194,6 +194,7 @@ def main(args: argparse.Namespace):
     # create the trainer
     trainer = SFTTrainer(
         model=model,
+        processing_class=tokenizer,
         train_dataset=train_dataset,
         eval_dataset=validation_dataset,
         args=training_args,
@@ -211,9 +212,11 @@ def main(args: argparse.Namespace):
             print("Recall masking disabled during training.")
 
     if SFT_CONFIG.train.use_recall_tokens:
-        if isinstance(trainer.model, RecaLLMMixin):
-            trainer.model.set_recall_type('token_id')
-            print("Using recall tokens during training.")
+        assert isinstance(trainer.model, RecaLLMMixin), \
+            "use_recall_tokens requires a RecaLLM model."
+        assert trainer.model.config.recall_tag_type == 'token_id', \
+            "Only recall_tag_type='token_id' is supported."
+        print("Using recall tokens during training.")
 
     # train
     trainer.train()

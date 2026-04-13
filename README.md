@@ -33,7 +33,7 @@ inputs = tokenizer.apply_chat_template(
     return_dict=True,
 ).to(model.device)
 
-outputs = model.generate(**inputs, max_new_tokens=2048, temperature=0.6, top_p=0.95)
+outputs = model.generate(**inputs, max_new_tokens=10240, temperature=0.6, top_p=0.95)
 response = tokenizer.decode(outputs[0][inputs["input_ids"].shape[1]:], skip_special_tokens=False)
 print(response)
 ```
@@ -49,7 +49,7 @@ model_name = "kswhitecross/RecaLLM-Qwen2.5-7B"
 llm = LLM(
     model=model_name,
     trust_remote_code=True,
-    max_model_len=40000,
+    max_model_len=49152,
     gpu_memory_utilization=0.95,
     # Use the native Qwen2 backend with RecaLLM's logits processor
     hf_overrides={
@@ -69,7 +69,7 @@ prompt_text = tokenizer.apply_chat_template(
     example["prompt"], add_generation_prompt=True, tokenize=False
 )
 
-outputs = llm.generate([prompt_text], SamplingParams(temperature=0.6, top_p=0.95, max_tokens=2048))
+outputs = llm.generate([prompt_text], SamplingParams(temperature=0.6, top_p=0.95, max_tokens=10240))
 print(outputs[0].outputs[0].text)
 ```
 

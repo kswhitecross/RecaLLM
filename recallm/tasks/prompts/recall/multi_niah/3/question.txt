@@ -1,0 +1,1 @@
+Recall all special magic {type_needle_v} for {query} from the passage.

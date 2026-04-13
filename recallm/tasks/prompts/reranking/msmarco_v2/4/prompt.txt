@@ -1,0 +1,5 @@
+Carefully read each document below and assess its relevance to the query. Consider how directly each document addresses the query, how much supporting evidence it provides, and how useful it would be for answering the query. Then produce a complete ranking of all document IDs from most to least relevant, separated by " > ".
+
+{question_start}{documents}
+{question_end}
+Ranking:

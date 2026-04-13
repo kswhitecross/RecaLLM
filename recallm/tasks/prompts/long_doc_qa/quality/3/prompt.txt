@@ -1,0 +1,5 @@
+You are given a story and a question with multiple choices. Choose the best answer from the options provided. Only one of the following options is correct, output the answer using one single letter (A, B, C, or D).
+
+{question_start}{article}
+
+{question_end}

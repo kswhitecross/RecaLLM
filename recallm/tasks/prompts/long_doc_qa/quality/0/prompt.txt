@@ -1,0 +1,7 @@
+Read the following article carefully, then answer the multiple-choice question by selecting the best option.
+
+{question_start}{article}
+
+{question_end}
+
+Put your final answer on the last line in the format: Answer: (your answer)

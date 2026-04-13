@@ -1,0 +1,5 @@
+Solve the following math problem step by step. Show your work clearly.
+
+{question}
+
+Put your final answer inside \boxed{} on the last line in the format: Answer: \boxed{your answer}

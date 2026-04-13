@@ -1,0 +1,1 @@
+What are all the special magic {type_needle_v} for {query} in the provided text? List each one. Output the final answer on the last line as: Answer: (your answer here).
