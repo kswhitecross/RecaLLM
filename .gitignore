@@ -37,8 +37,3 @@ wandb/
 recallm/evaluation/out/
 recallm/evaluation/results/
 recallm/evaluation/plots/
-
-# internal submission scripts
-recallm/evaluation/slurm_wrapper_high_mem.sh
-recallm/evaluation/slurm_wrapper_low_mem.sh
-recallm/evaluation/submit_all_slurm.sh
