@@ -1,5 +1,0 @@
-Answer the question using the provided documents. For each answer, cite the supporting document by including its number in square brackets (e.g., [1]). Each answer should cite exactly one document. List your answers separated by commas.
-
-{question_start}{documents}
-{question_end}
-Answer:

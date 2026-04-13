@@ -1,5 +1,0 @@
-Answer the following question based on the documents provided below. Use only information from the documents.
-
-{question_start}{documents}
-
-{question_end}

@@ -1,5 +1,0 @@
-Extract the value corresponding to the specified key in the list below.
-
-{question_start}{documents}
-
-{question_end}

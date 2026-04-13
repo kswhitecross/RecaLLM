@@ -1,3 +1,0 @@
-{question_start}{documents}
-
-{question_end}

@@ -1,8 +1,0 @@
-Classify the following text based on the labeled examples below.
-
-{dataset_task_description}
-
-{demonstrations}
-
-Now classify this text:
-{question_end}

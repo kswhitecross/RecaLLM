@@ -1,1 +1,0 @@
-The special magic {type_needle_v} for {key} is: {value}.

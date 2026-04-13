@@ -1,1 +1,0 @@
-What is the special magic {type_needle_v} for {query} in the provided text? Output the final answer on the last line as: Answer: (your answer here).

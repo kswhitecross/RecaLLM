@@ -1,5 +1,0 @@
-You are given a collection of documents and a question. Read all documents carefully, identify the relevant information, and provide a concise answer to the question. Only use information found in the provided documents.
-
-{question_start}{documents}
-
-{question_end}

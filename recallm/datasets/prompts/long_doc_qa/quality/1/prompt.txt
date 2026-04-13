@@ -1,7 +1,0 @@
-Below is a reading passage followed by a comprehension question. Read the full passage before answering.
-
-{question_start}{article}
-
-{question_end}
-
-Select the correct answer. Output your answer on the final line: Answer: X

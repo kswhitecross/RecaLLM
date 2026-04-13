@@ -1,4 +1,0 @@
-{demonstrations}
-
-{question_end}
-label:

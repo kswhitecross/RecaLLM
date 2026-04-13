@@ -1,1 +1,0 @@
-Find the special magic {type_needle_v} associated with {query} in the provided text.

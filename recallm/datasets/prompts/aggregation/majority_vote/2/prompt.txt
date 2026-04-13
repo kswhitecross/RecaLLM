@@ -1,5 +1,0 @@
-{question_start}The following delegates each cast one vote:
-
-{items}
-
-{question_end}Which option received the most votes? Think step-by-step, then give your final answer on the last line as: Answer: <winning option>

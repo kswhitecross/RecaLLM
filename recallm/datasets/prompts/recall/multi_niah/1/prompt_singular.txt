@@ -1,5 +1,0 @@
-The following passage contains a hidden {type_needle_v} associated with a specific key. Read the passage carefully, then answer the question below. End your response with: Answer: (your answer here).
-
-{question_start}{context}
-
-{question_end}

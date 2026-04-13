@@ -1,7 +1,0 @@
-Read the math problem below and choose the correct option from the choices provided. Show your reasoning step by step.
-
-{question}
-
-{choices}
-
-Format your final answer as: Answer: \boxed{your answer}

@@ -1,7 +1,0 @@
-You will read an article and answer a question about it. Choose the best answer from the options provided.
-
-{question_start}{article}
-
-{question_end}
-
-Output the letter of the correct choice on the last line in the format: Answer: X

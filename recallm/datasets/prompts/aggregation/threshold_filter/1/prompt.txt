@@ -1,6 +1,0 @@
-Below is a product catalog. Each product has several attributes listed. Read the catalog carefully and answer the question that follows.
-
-{question_start}{items}
-
-{question_end}Think step-by-step through the data. On the final line, write only:
-Answer: <your answer>

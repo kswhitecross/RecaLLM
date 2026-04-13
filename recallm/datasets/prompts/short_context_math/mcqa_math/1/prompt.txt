@@ -1,5 +1,0 @@
-{question}
-
-{choices}
-
-Select the correct answer. Output your answer in the format: Answer: \boxed{your answer}

@@ -1,3 +1,0 @@
-{question_start}{context}
-
-{question_end}

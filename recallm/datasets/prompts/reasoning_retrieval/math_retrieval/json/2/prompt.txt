@@ -1,9 +1,0 @@
-Solve the math problem. Use the result as a key to look up the value in the JSON dictionary.
-
-Answer: <the value>
-
-{question_start}```json
-{documents}
-```
-
-{question_end}

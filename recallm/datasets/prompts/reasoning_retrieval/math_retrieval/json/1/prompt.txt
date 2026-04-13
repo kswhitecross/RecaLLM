@@ -1,9 +1,0 @@
-Below is a JSON dictionary and a math problem. The answer to the math problem is one of the keys in the dictionary. Find the value associated with that key.
-
-Output your answer on the final line in the format: Answer: (your answer here).
-
-{question_start}```json
-{documents}
-```
-
-{question_end}

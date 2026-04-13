@@ -1,5 +1,0 @@
-Using the search results provided below, list all correct answers to the question. Cite one document per answer using [N] notation. Provide as many correct answers as possible, with at least 5 if available.
-
-{question_start}{documents}
-{question_end}
-Answer:

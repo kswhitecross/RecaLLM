@@ -1,7 +1,0 @@
-Extract the value corresponding to the specified key in the CSV table below.
-
-{question_start}```csv
-{documents}
-```
-
-{question_end}

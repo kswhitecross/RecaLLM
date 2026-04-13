@@ -1,5 +1,0 @@
-{question}
-
-{choices}
-
-Answer: \boxed{?}

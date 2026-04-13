@@ -1,7 +1,0 @@
-Extract the value corresponding to the specified key in the JSON object below.
-
-{question_start}```json
-{documents}
-```
-
-{question_end}

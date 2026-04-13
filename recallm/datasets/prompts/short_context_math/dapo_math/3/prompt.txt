@@ -1,5 +1,0 @@
-Work through the math problem below carefully. Reason step by step, verify your result, then give the final answer.
-
-{question}
-
-Format your final answer as: Answer: \boxed{your answer}

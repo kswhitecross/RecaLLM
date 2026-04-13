@@ -1,7 +1,0 @@
-Solve the math problem. Use the result as a key to look up the value.
-
-Answer: <the value>
-
-{question_start}{documents}
-
-{question_end}

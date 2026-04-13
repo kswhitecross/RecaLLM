@@ -1,7 +1,0 @@
-Read the following story carefully. After the story, you will find a multiple-choice question. Exactly one option is correct — respond with just the letter (A, B, C, or D).
-
-{question_start}{article}
-
-{question_end}
-
-Answer:

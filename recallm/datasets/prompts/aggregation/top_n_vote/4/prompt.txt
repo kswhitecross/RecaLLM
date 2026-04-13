@@ -1,6 +1,0 @@
-Below is a record of votes cast by delegates. Each delegate voted for exactly one option out of {total_candidates} choices. Count the votes for each option and determine which {n_top} received the most support.
-
-{question_start}{items}
-
-{question_end}Think step-by-step, then give your final answer on the last line as:
-Answer: <the {n_top} most voted options, separated by commas>

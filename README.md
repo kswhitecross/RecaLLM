@@ -1,7 +1,7 @@
 # RecaLLM: Addressing the Lost-in-Thought Phenomenon with Explicit In-Context Retrieval
 
 <p align="center">
-  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://arxiv.org/abs/2604.09494"><img src="https://img.shields.io/badge/arXiv-2604.09494-b31b1b.svg" alt="arXiv"></a>
   <a href="https://huggingface.co/collections/kswhitecross/recallm"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Collection-ffd21e.svg" alt="HuggingFace Collection"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
 </p>
@@ -122,6 +122,8 @@ cd recallm/sft
 deepspeed train_sft.py --config configs/qwen2_embed.yaml
 ```
 
+> **Note:** The configs assume 4 GPUs. If you use a different number, adjust `gradient_accumulation_steps` so that the effective batch size stays the same: `gradient_accumulation_steps = desired_effective_batch / (per_device_batch * num_gpus)`. Override via the command line, e.g. `deepspeed train_sft.py --config configs/qwen2_embed.yaml sft.gradient_accumulation_steps 2`.
+
 ### Stage 2: SFT -- Full Finetune
 
 Unfreeze all parameters and finetune for 1 epoch at a lower learning rate. Update `model.name` in the config to point to your Stage 1 checkpoint.
@@ -202,14 +204,14 @@ All training and evaluation data is available on HuggingFace: [kswhitecross/Reca
 To generate custom datasets from source corpora:
 
 ```bash
-python -m recallm.datasets.create_dataset \
+python -m recallm.tasks.create_dataset \
     --type math_retrieval \
     --target_context 8000 \
     --n_examples 100 \
     --save_path data/custom/math_retrieval_8k
 ```
 
-See `recallm/datasets/` for all 10 dataset categories and their source implementations.
+See `recallm/tasks/` for all 10 dataset categories and their source implementations.
 
 ## Models
 
@@ -224,7 +226,7 @@ See `recallm/datasets/` for all 10 dataset categories and their source implement
 @article{whitecross2026recallm,
   title={RecaLLM: Addressing the Lost-in-Thought Phenomenon with Explicit In-Context Retrieval},
   author={Whitecross, Kyle and Rahimi, Negin},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  journal={arXiv preprint arXiv:2604.09494},
   year={2026}
 }
 ```

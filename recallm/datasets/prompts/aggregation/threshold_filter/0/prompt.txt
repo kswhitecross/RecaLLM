@@ -1,6 +1,0 @@
-Read the following product catalog and track the attributes of each product. Find the products that match the given criteria.
-
-{question_start}{items}
-
-{question_end}Do not provide any explanation beyond your reasoning. On the final line, output only:
-Answer: <your answer>

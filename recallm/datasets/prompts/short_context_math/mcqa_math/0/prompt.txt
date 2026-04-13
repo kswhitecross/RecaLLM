@@ -1,7 +1,0 @@
-Answer the following multiple choice math problem by selecting the correct option.
-
-{question}
-
-{choices}
-
-Put your final answer (the letter of the correct choice) inside \boxed{} on the last line in the format: Answer: \boxed{your answer}

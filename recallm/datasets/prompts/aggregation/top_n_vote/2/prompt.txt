@@ -1,7 +1,0 @@
-Below is a list of votes. In these votes, some options appear more often than others. Memorize the ones that appear most often.
-
-{question_start}{items}
-
-Question: What are the {n_top} most common options in the above list of votes?
-{question_end}Do your reasoning step-by-step. On the final line, output only:
-Answer: <the top {n_top} options that appear most often, separated by commas>

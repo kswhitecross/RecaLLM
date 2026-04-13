@@ -1,5 +1,0 @@
-There is a special magic {type_needle_v} hidden within the following text. Pay attention carefully. I will quiz you about the {type_needle_v} afterwards. You must output the answer on the final line in the format: Answer: (your final answer here).
-
-{question_start}{context}
-
-{question_end}

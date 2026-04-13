@@ -1,5 +1,0 @@
-Memorize the special magic {type_needle_v} hidden in the following passage. You will be quizzed afterward. Output the final answer on the last line as: Answer: (the value).
-
-{question_start}{context}
-
-{question_end}

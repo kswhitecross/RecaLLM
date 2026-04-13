@@ -1,6 +1,0 @@
-Below is a record of votes cast in an election with {total_candidates} candidates. Each delegate voted for exactly one candidate. Determine which {n_top} candidates received the most votes.
-
-{question_start}{items}
-
-{question_end}Do your reasoning step-by-step. On the final line, output only:
-Answer: <the {n_top} options that received the most votes, separated by commas>

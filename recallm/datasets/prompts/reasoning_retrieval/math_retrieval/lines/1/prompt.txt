@@ -1,9 +1,0 @@
-Below is a list of key-value entries and a math problem. The answer to the math problem is one of the keys. Find the value associated with that key.
-
-Output your answer on the final line in the format: Answer: (your answer here).
-
-{question_start}Entries:
-
-{documents}
-
-{question_end}

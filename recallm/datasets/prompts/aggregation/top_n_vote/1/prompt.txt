@@ -1,6 +1,0 @@
-The following survey asked respondents to select their preferred option from {total_candidates} choices. Review all responses and identify the {n_top} most popular options.
-
-{question_start}{items}
-
-{question_end}Show your reasoning step-by-step. On the final line, output only:
-Answer: <the top {n_top} options by vote count, separated by commas>
