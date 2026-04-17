@@ -15,7 +15,7 @@
 
 dataset:
   names:
-  - kswhitecross/RecaLLM-sft
+  - XX-1/RecaLLM-sft
   create_validaion_split: false
   sample_validation: true
   validation_sample_fraction: 0.4

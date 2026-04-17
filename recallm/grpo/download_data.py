@@ -2,7 +2,7 @@
 Download and merge GRPO training data from HuggingFace.
 
 VeRL requires local .parquet files, but the HuggingFace dataset
-(kswhitecross/RecaLLM-data) stores data in 17 separate configs
+(XX-1/RecaLLM-data) stores data in 17 separate configs
 (one per dataset). This script downloads all train splits and merges
 them into a single train.parquet for GRPO training.
 
@@ -15,7 +15,7 @@ import os
 from datasets import load_dataset, concatenate_datasets
 
 
-HF_REPO = "kswhitecross/RecaLLM-data"
+HF_REPO = "XX-1/RecaLLM-data"
 
 DATASET_CONFIGS = [
     "hotpotqa",

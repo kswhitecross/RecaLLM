@@ -37,3 +37,7 @@ wandb/
 recallm/evaluation/out/
 recallm/evaluation/results/
 recallm/evaluation/plots/
+
+# Internal SLURM scripts (cluster-specific, not for public release)
+recallm/evaluation/slurm_wrapper_*.sh
+recallm/evaluation/submit_all_slurm.sh

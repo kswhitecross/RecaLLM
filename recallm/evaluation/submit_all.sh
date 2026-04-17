@@ -5,7 +5,7 @@
 #
 # save_dir will be expanded to: <save_dir>/<dataset>/<context_length>
 #
-# Data is loaded from HuggingFace Hub (kswhitecross/RecaLLM-data) by default.
+# Data is loaded from HuggingFace Hub (XX-1/RecaLLM-data) by default.
 # Each job runs: python -m recallm.evaluation.evaluate_vllm
 #
 # By default, this script prints commands (dry run). To actually submit jobs,

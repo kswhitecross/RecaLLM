@@ -1,8 +1,8 @@
 # RecaLLM: Addressing the Lost-in-Thought Phenomenon with Explicit In-Context Retrieval
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2604.09494"><img src="https://img.shields.io/badge/arXiv-2604.09494-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://huggingface.co/collections/kswhitecross/recallm"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Collection-ffd21e.svg" alt="HuggingFace Collection"></a>
+  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://huggingface.co/collections/XX-1/recallm"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Collection-ffd21e.svg" alt="HuggingFace Collection"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
 </p>
 
@@ -17,14 +17,14 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from datasets import load_dataset
 
 # Load model (recall masking is built into the forward pass)
-model_name = "kswhitecross/RecaLLM-Qwen2.5-7B"
+model_name = "XX-1/RecaLLM-Qwen2.5-7B"
 model = AutoModelForCausalLM.from_pretrained(
     model_name, trust_remote_code=True, torch_dtype="auto", device_map="auto"
 )
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 # Load an evaluation example (math retrieval at 32k context)
-ds = load_dataset("kswhitecross/RecaLLM-data", "math_retrieval", split="val_32k")
+ds = load_dataset("XX-1/RecaLLM-data", "math_retrieval", split="val_32k")
 example = ds[0]
 
 # The chat template auto-injects the system prompt when none is provided
@@ -44,7 +44,7 @@ print(response)
 from vllm import LLM, SamplingParams
 from datasets import load_dataset
 
-model_name = "kswhitecross/RecaLLM-Qwen2.5-7B"
+model_name = "XX-1/RecaLLM-Qwen2.5-7B"
 
 llm = LLM(
     model=model_name,
@@ -60,7 +60,7 @@ llm = LLM(
     logits_processors=["recallm.recallm_vllm:VLLMTokenRecaLLMLogitsProcessor"],
 )
 
-ds = load_dataset("kswhitecross/RecaLLM-data", "math_retrieval", split="val_32k")
+ds = load_dataset("XX-1/RecaLLM-data", "math_retrieval", split="val_32k")
 example = ds[0]
 
 from transformers import AutoTokenizer
@@ -76,7 +76,7 @@ print(outputs[0].outputs[0].text)
 ## Installation
 
 ```bash
-git clone https://github.com/kswhitecross/RecaLLM.git
+git clone https://github.com/XX-1/RecaLLM.git
 cd RecaLLM
 pip install -e . -e trl/ -e verl/
 ```
@@ -115,7 +115,7 @@ python -m recallm.create_recallm_model \
 
 ### Stage 1: SFT -- Embedding Training
 
-Train only the new token embeddings (5 epochs, frozen base model). SFT data is automatically downloaded from [kswhitecross/RecaLLM-sft](https://huggingface.co/datasets/kswhitecross/RecaLLM-sft) (1,795 GPT-5.2-annotated reasoning traces with recall spans).
+Train only the new token embeddings (5 epochs, frozen base model). SFT data is automatically downloaded from [XX-1/RecaLLM-sft](https://huggingface.co/datasets/XX-1/RecaLLM-sft) (1,795 GPT-5.2-annotated reasoning traces with recall spans).
 
 ```bash
 cd recallm/sft
@@ -146,7 +146,7 @@ GRPO (Group Relative Policy Optimization) training using [VeRL](https://github.c
 python -m recallm.grpo.download_data --output_dir data/grpo
 ```
 
-This downloads all 17 dataset configs from [kswhitecross/RecaLLM-data](https://huggingface.co/datasets/kswhitecross/RecaLLM-data) and merges them into `data/grpo/train.parquet` (20K examples) and `data/grpo/validation.parquet`.
+This downloads all 17 dataset configs from [XX-1/RecaLLM-data](https://huggingface.co/datasets/XX-1/RecaLLM-data) and merges them into `data/grpo/train.parquet` (20K examples) and `data/grpo/validation.parquet`.
 
 #### Launch Training
 
@@ -180,7 +180,7 @@ Evaluate on in-domain validation datasets (17 datasets x 7 context lengths, load
 
 ```bash
 python -m recallm.evaluation.evaluate_vllm \
-    --model kswhitecross/RecaLLM-Qwen2.5-7B \
+    --model XX-1/RecaLLM-Qwen2.5-7B \
     --dataset math_retrieval \
     --context_length 32k \
     --save_path results/recallm_qwen2/math_retrieval/32k
@@ -190,7 +190,7 @@ To run all datasets and context lengths:
 
 ```bash
 cd recallm/evaluation
-bash submit_all.sh kswhitecross/RecaLLM-Qwen2.5-7B results/recallm_qwen2
+bash submit_all.sh XX-1/RecaLLM-Qwen2.5-7B results/recallm_qwen2
 ```
 
 By default, `submit_all.sh` prints commands (dry run). Edit the `run_command()` function to submit to your cluster or run locally.
@@ -199,7 +199,7 @@ Use `recallm/evaluation/analysis.ipynb` to generate summary tables and plots fro
 
 ## Datasets
 
-All training and evaluation data is available on HuggingFace: [kswhitecross/RecaLLM-data](https://huggingface.co/datasets/kswhitecross/RecaLLM-data).
+All training and evaluation data is available on HuggingFace: [XX-1/RecaLLM-data](https://huggingface.co/datasets/XX-1/RecaLLM-data).
 
 To generate custom datasets from source corpora:
 
@@ -217,16 +217,16 @@ See `recallm/tasks/` for all 10 dataset categories and their source implementati
 
 | Model | Base | HuggingFace |
 |-------|------|-------------|
-| RecaLLM-Qwen2.5-7B | Qwen2.5-7B-Instruct | [kswhitecross/RecaLLM-Qwen2.5-7B](https://huggingface.co/kswhitecross/RecaLLM-Qwen2.5-7B) |
-| RecaLLM-Llama-3.1-8B | Llama-3.1-8B-Instruct | [kswhitecross/RecaLLM-Llama-3.1-8B](https://huggingface.co/kswhitecross/RecaLLM-Llama-3.1-8B) |
+| RecaLLM-Qwen2.5-7B | Qwen2.5-7B-Instruct | [XX-1/RecaLLM-Qwen2.5-7B](https://huggingface.co/XX-1/RecaLLM-Qwen2.5-7B) |
+| RecaLLM-Llama-3.1-8B | Llama-3.1-8B-Instruct | [XX-1/RecaLLM-Llama-3.1-8B](https://huggingface.co/XX-1/RecaLLM-Llama-3.1-8B) |
 
 ## Citation
 
 ```bibtex
-@article{whitecross2026recallm,
+@article{XX-2,
   title={RecaLLM: Addressing the Lost-in-Thought Phenomenon with Explicit In-Context Retrieval},
-  author={Whitecross, Kyle and Rahimi, Negin},
-  journal={arXiv preprint arXiv:2604.09494},
+  author={XX-3, XX-4 and XX-5, XX-6},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2026}
 }
 ```

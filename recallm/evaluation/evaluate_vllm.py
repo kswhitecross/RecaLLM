@@ -1,14 +1,14 @@
 """
 Evaluate RecaLLM models on in-domain validation datasets using vLLM.
 
-Loads data from HuggingFace Hub (kswhitecross/RecaLLM-data) by default,
+Loads data from HuggingFace Hub (XX-1/RecaLLM-data) by default,
 or from a local .parquet file. Scores completions using final_reward()
 from recallm.grpo.rewards.
 
 Usage:
     # Evaluate on HotpotQA at 32k context
     python -m recallm.evaluation.evaluate_vllm \
-        --model kswhitecross/RecaLLM-Qwen2.5-7B \
+        --model XX-1/RecaLLM-Qwen2.5-7B \
         --dataset hotpotqa --context_length 32k \
         --save_path ./results/my_model/hotpotqa/32k
 
@@ -364,8 +364,8 @@ if __name__ == "__main__":
     parser.add_argument("--context_length", type=str, default="32k",
                         help="Context length split to evaluate (e.g., '4k', '32k', '128k'). "
                              "Only used when --dataset is an HF config name. Default: 32k")
-    parser.add_argument("--data_repo", type=str, default="kswhitecross/RecaLLM-data",
-                        help="HuggingFace dataset repository. Default: kswhitecross/RecaLLM-data")
+    parser.add_argument("--data_repo", type=str, default="XX-1/RecaLLM-data",
+                        help="HuggingFace dataset repository. Default: XX-1/RecaLLM-data")
     parser.add_argument("--save_path", type=str, required=True,
                         help="Path to save evaluation results")
 

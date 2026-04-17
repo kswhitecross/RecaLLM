@@ -29,7 +29,7 @@ from .qa_kilt import DEFAULT_DENSE_INDEX_DIR, DEFAULT_DENSE_MODEL_NAME
 _PACKAGE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 _DATASETS_DIR = os.path.dirname(__file__)
 _DEFAULT_SYSTEM_PROMPT = os.path.join(_PACKAGE_DIR, "system_prompts", "strategic_recall.txt")
-_DEFAULT_TOKENIZER = "kswhitecross/RecaLLM-Qwen2.5-7B"
+_DEFAULT_TOKENIZER = "XX-1/RecaLLM-Qwen2.5-7B"
 _DEFAULT_FILTER_DIR = os.path.join(_DATASETS_DIR, "filters")
 _CONTEXT_RANGE_UNSUPPORTED_TYPES = {"dapo_math", "mcqa_math", "quality"}
 

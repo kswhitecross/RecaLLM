@@ -10,10 +10,10 @@ Pre-generated training and evaluation datasets are available on HuggingFace:
 from datasets import load_dataset
 
 # Load GRPO training data for a single dataset
-ds = load_dataset("kswhitecross/RecaLLM-data", "hotpotqa", split="train")
+ds = load_dataset("XX-1/RecaLLM-data", "hotpotqa", split="train")
 
 # Load evaluation data at a specific context length
-ds = load_dataset("kswhitecross/RecaLLM-data", "hotpotqa", split="val_32k")
+ds = load_dataset("XX-1/RecaLLM-data", "hotpotqa", split="val_32k")
 
 # Available splits per config: train, val_4k, val_8k, val_16k, val_32k, val_64k, val_96k, val_128k
 ```
